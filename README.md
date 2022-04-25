@@ -1,13 +1,14 @@
-# Introduction
+# .NETFlow
+## Introduction
 
 This library is a native C# implementation for Cisco's [NetFlow v5](https://www.cisco.com/c/en/us/td/docs/net_mgmt/netflow_collection_engine/3-6/user/guide/format.html), [NetFlow v9](https://www.cisco.com/en/US/technologies/tk648/tk362/technologies_white_paper09186a00800a3db9.html) and IANA's [IPFIX](https://tools.ietf.org/html/rfc7012) protocols. It provides an in-memory representation for the flow sets used in the protocol as well as a `NetFlowReader` and a `NetFlowWriter` or an `IpfixReader`and an `IpfixWriter`, respectively, to read and write binary netflows from streams.
 
 
-# Getting started
+## Getting started
 
 The library is self contained and supported on .NET Standard 2.0. All external dependencies are obtained from Nuget during package restore. The following example demonstrate the useage of the library.
 
-## Usage
+### Usage
 
 This following example demonstrates how to write a single NetFlow v9 packet containing a template and a single data record into a file.
 ```C#
@@ -104,5 +105,5 @@ using (var ds = File.OpenWrite("destination.flow")) {
 }
 ```
 
-# Acknowledgements
+## Acknowledgements
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 833418.
