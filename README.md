@@ -103,3 +103,6 @@ using (var ds = File.OpenWrite("destination.flow")) {
     } catch (EndOfStreamException) { }
 }
 ```
+
+# Acknowledgements
+This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 833418.
