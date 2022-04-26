@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <Authors>Christoph Müller</Authors>
+    <Company>Visualisierungsinstitut der Universität Stuttgart</Company>
+    <Product>.NETFlow</Product>
+    <AssemblyName>DotNetFlow</AssemblyName>
+    <RootNamespace>DotNetFlow</RootNamespace>
+    <Description>A native C# implementation for reading and writing NetFlow v5 and NetFlow v9 as well as IPFIX packets.</Description>
+    <Copyright>Copyright © 2020 - 2022 Institut für Visualisierung und Interaktive Systeme</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/UniStuttgart-VISUS/dotnetflow</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/UniStuttgart-VISUS/dotnetflow</RepositoryUrl>
+    <PackageTags>netflow ipfix</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
