@@ -1,18 +1,21 @@
 # .NETFlow
-## Introduction
 
+## Introduction
 This library is a native C# implementation for Cisco's [NetFlow v5](https://www.cisco.com/c/en/us/td/docs/net_mgmt/netflow_collection_engine/3-6/user/guide/format.html), [NetFlow v9](https://www.cisco.com/en/US/technologies/tk648/tk362/technologies_white_paper09186a00800a3db9.html) and IANA's [IPFIX](https://tools.ietf.org/html/rfc7012) protocols. It provides an in-memory representation for the flow sets used in the protocol as well as a `NetFlowReader` and a `NetFlowWriter` or an `IpfixReader`and an `IpfixWriter`, respectively, to read and write binary netflows from streams.
 
 
-## Getting started
+## Building and testing
+The Visual Studio solution should build right away in a Visual Studio 2019 or later installation with C# workload and support for .NET Core installed with all dependencies being installed from [Nuget](https://www.nuget.org). The tests are implemented using the C# testing framework for Visual Studio and can be run from the "Test" menu.
 
+
+## Getting started
 The library is self contained and supported on .NET Standard 2.0. All external dependencies are obtained from Nuget during package restore. The following example demonstrate the useage of the library.
 
 ### Usage
 
 This following example demonstrates how to write a single NetFlow v9 packet containing a template and a single data record into a file.
 ```C#
-using Sappan.Netflow.Netflow9;
+using DotNetFlow.Netflow9;
 using System;
 using System.IO;
 using System.Net;
@@ -41,7 +44,7 @@ using (var nw = new NetFlowWriter(fs)) {
 The next example demonstrates how to restore the packet from the file. As the interpretation of a `DataFlowSet` usually requires users to correlate the data flows with the matching template flows, the library provides a `NetFlowView` that facilitates this work.
 
 ```C#
-using Sappan.Netflow.Netflow9;
+using DotNetFlow.Netflow9;
 using System;
 using System.IO;
 using System.Net;
@@ -91,7 +94,7 @@ using (var nr = new NetFlowReader(fs)) {
 As NetFlow and IPFIX data are in network byte order, all readers and writers perform the appropriate conversions. Therefore, copying data using the reader and the writer is an unnecessarily costly operation as it converts and interprets all of the data. In order to perform an efficient per-packet copy, the library provides extension methods for `Stream` that copy the data while only interpreting the strictly necessary information. The following sample copies a NetFlow v9 stream:
 
 ```C#
-using Sappan.Netflow.Netflow9;
+using DotNetFlow.Netflow9;
 using System;
 using System.IO;
 
